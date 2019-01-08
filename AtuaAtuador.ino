@@ -199,4 +199,19 @@ void apagaLuz3(){
   void desligaVentiladorSala(){
     digitalWrite(pinVentiladorSala, LOW);
   }
-  
+
+  void ativaSolenoide(){
+    digitalWrite(pinRele_1, HIGH);
+  }
+
+  void desativaSolenoide(){
+    digitalWrite(pinRele_1, LOW);
+  }
+
+  void ativaSirene(){
+    digitalWrite(pinRele_2, HIGH);
+  }
+
+  void desativaSirene(){
+    digitalWrite(pinRele_2, LOW);
+  }

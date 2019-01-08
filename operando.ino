@@ -4,7 +4,11 @@ void operar(){
   while(dadosGas('c')>=setpoint || dadosGas('a')>=setpoint){
     abreJanelaCozinha();
     Serial1.println("FOGO");
-    //fechaSolenoide
+    ativaSolenoide();
+    ativaSirene();
+    delay(2000);
+    desativaSirene();
+    delay(1800);
     //continua travado nesse loop ate o gas sair
   }
 }
