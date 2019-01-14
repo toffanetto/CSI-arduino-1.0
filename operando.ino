@@ -5,11 +5,18 @@ void operar(){
     abreJanelaCozinha();
     Serial1.println("FOGO");
     ativaSolenoide();
+    abreJanelaCozinha();
     ativaSirene();
     delay(2000);
     desativaSirene();
     delay(1800);
+    marcus++;
     //continua travado nesse loop ate o gas sair
+  }
+  if(marcus!=0){
+    desativaSolenoide();
+    fechaJanelaCozinha();
+    marcus=0;
   }
 }
   

@@ -70,7 +70,7 @@ const int ledVermelho = 47;
 const int ledVerde = 39;
 const int ledNaoSei1 = 45;
 const int ledNaoSei2 = 43;
-const int ledNaoSei3 = 43;
+const int ledNaoSei3 = 42;
 const int pinExaustorCozinha = 52;
 const int pinVentiladorSala = 53;
 
@@ -83,6 +83,7 @@ int cont=0;
 int cont2=0;
 boolean rele = LOW;
 int setpoint = 1024;
+int marcus =0;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -110,14 +111,19 @@ void setup() {
   pinMode(pinMQ7_D0,INPUT);
   pinMode(pinRele_1,OUTPUT);
   pinMode(pinRele_2,OUTPUT);
-  digitalWrite(pinRele_1,HIGH);
-  digitalWrite(pinRele_2,HIGH);
+  digitalWrite(pinRele_1,LOW);
+  digitalWrite(pinRele_2,LOW);
   pinMode(ledQuarto, OUTPUT);
   pinMode(ledVerde, OUTPUT);
   pinMode(ledAmarelo, OUTPUT);
   pinMode(pinVentiladorSala, OUTPUT);
   pinMode(pin_rele, OUTPUT);
   pinMode(pin_somD, INPUT);
+  pinMode(pinExaustorCozinha, OUTPUT);
+  pinMode(ledNaoSei1, OUTPUT);
+  pinMode(ledNaoSei2, OUTPUT);
+  pinMode(ledNaoSei3, OUTPUT);  
+ 
   
   iniciandoSerial();
   
