@@ -1,23 +1,24 @@
 /////////////////////////////////////////
 
 void operar(){
-  while(dadosGas('c')>=setpoint || dadosGas('a')>=setpoint){
-    abreJanelaCozinha();
-    Serial1.println("FOGO");
-    ativaSolenoide();
-    abreJanelaCozinha();
-    ativaSirene();
-    delay(2000);
-    desativaSirene();
-    delay(1800);
+  while(dadosGas('c')>=setpointGas || dadosGas('a')>=setpointGas){
     marcus++;
+    modoDeSeguranca();
+    
     //continua travado nesse loop ate o gas sair
   }
   if(marcus!=0){
     desativaSolenoide();
     fechaJanelaCozinha();
+    digitalWrite(ledPin2, LOW);
     marcus=0;
   }
+  ativaPalmas();
+  if(dadosUMD('A')<setpointUmidade){
+    //POEM AGUA NA PORRA DO VASO
+  }
+  controlaLuzExterna();
+ 
 }
   
 void controlaLuzExterna(){
@@ -25,25 +26,17 @@ void controlaLuzExterna(){
   digitalWrite(ledPin, HIGH);
   else
   digitalWrite(ledPin, LOW);
+}
 
-  }
-
-void verificaGas(){
-    if(pinMQ2_D0 || pinMQ7_D0){
-      digitalWrite(ledPin2, HIGH);
-    }
-  }
-
-short modoDeSeguranca(){ //INTERRUPÇÃO
+void modoDeSeguranca(){ //INTERRUPÇÃO
+    abreJanelaCozinha();
+    Serial1.println("FOGO");
+    ativaSolenoide();
     digitalWrite(ledPin2, HIGH);
-    ativaRele(1);
-    if(pinMQ2_D0 || pinMQ7_D0){
-      return(modoDeSeguranca());
-    }
-      else{
-        desativaRele(1);
-        digitalWrite(ledPin2, LOW);
-      }   
+    ativaSirene();
+    delay(2000);
+    desativaSirene();
+    delay(1800);
 }
 
 void ativaPalmas(){
@@ -53,8 +46,7 @@ void ativaPalmas(){
   cont2=0;
   Serial.println(analogRead(pin_somA));
   delay(10);
-  }
-  
+  } 
 
   if(cont==2){
     rele = !rele; //Operacao NAO: Se estiver LOW, passa pra HIGH. Se estiver HIGH passa para LOW

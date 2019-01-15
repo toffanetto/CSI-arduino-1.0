@@ -49,30 +49,30 @@ EthernetServer server(80);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-const int LDR = A0;
-const int ledPin = 22;
-const int ledPin2 = 28;
-const int pinMQ2_D0 = 32;
-const int pinMQ7_D0 = 24;
-const int pinMQ2_A0 = A2;
-const int pinMQ7_A0 = A1;
-const int pinPIR = 35;
-const int pin_somA = A5;
-const int pin_rele = 30;
-const int pin_somD = 31;
-const int pinUMD_D0 = 26;
-const int pinUMD_A0 = A3;
+const int LDR = A0; // 
+const int ledPin = 22; // LED NFC
+const int ledPin2 = 28; // LED DE EMERGENCIA
+const int pinMQ2_D0 = 32; // DIGITAL MQ2
+const int pinMQ7_D0 = 24; // DIGITAL MQ7
+const int pinMQ2_A0 = A2; // ANALOGICO MQ2
+const int pinMQ7_A0 = A1; // ANALOGICO MQ7
+const int pinPIR = 35; // SAIDA DO PIR
+const int pin_somA = A5; // ANALOGICO SOM
+const int pin_rele = 30; // SLA
+const int pin_somD = 31; // DIGITAL SOM
+const int pinUMD_D0 = 26; // DIGITAL UMD
+const int pinUMD_A0 = A3; // ANALOGICO UMD
 const int pinRele_1 = 5; //SOLENOIDE
 const int pinRele_2 = 6; //SIRENE
-const int ledQuarto = 49;
-const int ledAmarelo = 41;
-const int ledVermelho = 47;
-const int ledVerde = 39;
-const int ledNaoSei1 = 45;
-const int ledNaoSei2 = 43;
-const int ledNaoSei3 = 42;
-const int pinExaustorCozinha = 52;
-const int pinVentiladorSala = 53;
+const int ledQuarto = 49; //  LUZ DA
+const int ledAmarelo = 41; // LUZ DA
+const int ledVermelho = 47; // LUZ DA
+const int ledVerde = 39; // LUZ DA
+const int ledNaoSei1 = 45; // LUZ DA
+const int ledNaoSei2 = 43; // LUZ DA
+const int ledNaoSei3 = 42; // LUZ DA 
+const int pinExaustorCozinha = 52; // VENTUINHA DA COZINHA
+const int pinVentiladorSala = 53; // VENTUINHA DA SALA
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -82,8 +82,9 @@ const int pinVentiladorSala = 53;
 int cont=0;
 int cont2=0;
 boolean rele = LOW;
-int setpoint = 1024;
-int marcus =0;
+int setpointGas = 1024; // QUANTIDADE DE GÁS QUE VAI ATIVAR O MODO DE SEGURANÇA
+int setpointUmidade = 500;
+int marcus = 0;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -104,27 +105,26 @@ void setup() {
   
   Serial.begin(115200);
   Serial1.begin(9600);
-  pinMode(ledPin, OUTPUT);
-  pinMode(ledPin2, OUTPUT);
-  pinMode(pinPIR, INPUT);
-  pinMode(pinMQ2_D0,INPUT);
-  pinMode(pinMQ7_D0,INPUT);
-  pinMode(pinRele_1,OUTPUT);
-  pinMode(pinRele_2,OUTPUT);
-  digitalWrite(pinRele_1,LOW);
-  digitalWrite(pinRele_2,LOW);
-  pinMode(ledQuarto, OUTPUT);
-  pinMode(ledVerde, OUTPUT);
-  pinMode(ledAmarelo, OUTPUT);
-  pinMode(pinVentiladorSala, OUTPUT);
-  pinMode(pin_rele, OUTPUT);
-  pinMode(pin_somD, INPUT);
-  pinMode(pinExaustorCozinha, OUTPUT);
-  pinMode(ledNaoSei1, OUTPUT);
-  pinMode(ledNaoSei2, OUTPUT);
-  pinMode(ledNaoSei3, OUTPUT);  
- 
-  
+  pinMode(ledPin, OUTPUT); //
+  pinMode(ledPin2, OUTPUT); //
+  pinMode(pinPIR, INPUT); // 
+  pinMode(pinMQ2_D0,INPUT); //
+  pinMode(pinMQ7_D0,INPUT); //
+  pinMode(pinRele_1,OUTPUT); //
+  pinMode(pinRele_2,OUTPUT); //
+  digitalWrite(pinRele_1,LOW); //
+  digitalWrite(pinRele_2,LOW); //
+  pinMode(ledQuarto, OUTPUT); //
+  pinMode(ledVerde, OUTPUT); // 
+  pinMode(ledAmarelo, OUTPUT); //
+  pinMode(pinVentiladorSala, OUTPUT); //
+  pinMode(pin_rele, OUTPUT); //
+  pinMode(pin_somD, INPUT); //
+  pinMode(pinExaustorCozinha, OUTPUT); //
+  pinMode(ledNaoSei1, OUTPUT); //
+  pinMode(ledNaoSei2, OUTPUT); //
+  pinMode(ledNaoSei3, OUTPUT);   //
+   
   iniciandoSerial();
   
   nfc.begin();
@@ -170,8 +170,6 @@ void loop() {
   readNFC();
   lerBluetooth();
   lerSerial();
-  comunicaEthernet();
-  ativaPalmas();
   operar();
   
 }
