@@ -74,11 +74,11 @@ void lerBluetooth(){
         break;
 
         case 17:
-        acendeLuz2();
+        acendeLuzQuartoS();
         break;
 
         case 18:
-        apagaLuz2();
+        apagaLuzQuartoS();
         break;
 
     /*  case 19:

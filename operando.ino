@@ -50,7 +50,7 @@ void ativaPalmas(){
 
   if(cont==2){
     rele = !rele; //Operacao NAO: Se estiver LOW, passa pra HIGH. Se estiver HIGH passa para LOW
-    digitalWrite(pin_rele, rele); // Manda o valor da variavel para o rele
+    digitalWrite(ledAmarelo, rele); // Manda o valor da variavel para o rele
     cont2=0;
     cont=0;
   }

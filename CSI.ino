@@ -50,29 +50,29 @@ EthernetServer server(80);
 ////////////////////////////////////////////////////////////////////////////////
 
 const int LDR = A0; // 
-const int ledPin = 22; // LED NFC
-const int ledPin2 = 28; // LED DE EMERGENCIA
+const int ledPin = 50; // LED NFC
+const int ledPin2 = 48; // LED DE EMERGENCIA
 const int pinMQ2_D0 = 32; // DIGITAL MQ2
 const int pinMQ7_D0 = 24; // DIGITAL MQ7
 const int pinMQ2_A0 = A2; // ANALOGICO MQ2
 const int pinMQ7_A0 = A1; // ANALOGICO MQ7
 const int pinPIR = 35; // SAIDA DO PIR
 const int pin_somA = A5; // ANALOGICO SOM
-const int pin_rele = 30; // SLA
+//const int pin_rele = 30; // SLA
 const int pin_somD = 31; // DIGITAL SOM
 const int pinUMD_D0 = 26; // DIGITAL UMD
 const int pinUMD_A0 = A3; // ANALOGICO UMD
 const int pinRele_1 = 5; //SOLENOIDE
 const int pinRele_2 = 6; //SIRENE
-const int ledQuarto = 49; //  LUZ DA
-const int ledAmarelo = 41; // LUZ DA
-const int ledVermelho = 47; // LUZ DA
-const int ledVerde = 39; // LUZ DA
-const int ledNaoSei1 = 45; // LUZ DA
-const int ledNaoSei2 = 43; // LUZ DA
-const int ledNaoSei3 = 42; // LUZ DA 
-const int pinExaustorCozinha = 52; // VENTUINHA DA COZINHA
-const int pinVentiladorSala = 53; // VENTUINHA DA SALA
+const int ledQuarto = 49; //  LUZ DO QUARTO DE CASAL
+const int ledAmarelo = 41; // LUZ DO QUARTO DE SOLTEIRO
+const int ledVermelho = 47; // LUZ DA GARAGEM
+const int ledVerde = 39; // LUZ DA COZINHA
+const int ledNaoSei1 = 45; // LUZ DA SALA
+//const int ledNaoSei2 = 41; // 
+//const int ledNaoSei3 = 42; // LUZ DA 
+const int pinExaustorCozinha = 52; // VENTUINHA DA COZINHA // VS2
+const int pinVentiladorSala = 53; // VENTUINHA DA SALA //VS1
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -118,12 +118,12 @@ void setup() {
   pinMode(ledVerde, OUTPUT); // 
   pinMode(ledAmarelo, OUTPUT); //
   pinMode(pinVentiladorSala, OUTPUT); //
-  pinMode(pin_rele, OUTPUT); //
+//  pinMode(pin_rele, OUTPUT); //
   pinMode(pin_somD, INPUT); //
   pinMode(pinExaustorCozinha, OUTPUT); //
   pinMode(ledNaoSei1, OUTPUT); //
-  pinMode(ledNaoSei2, OUTPUT); //
-  pinMode(ledNaoSei3, OUTPUT);   //
+//  pinMode(ledNaoSei2, OUTPUT); //
+//  pinMode(ledNaoSei3, OUTPUT);   //
    
   iniciandoSerial();
   

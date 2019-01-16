@@ -132,19 +132,19 @@ void apagaLuzQuarto(){
   }
 
 void acendeLuzCozinha(){
-    digitalWrite(ledAmarelo,HIGH);
-  }
-
-void apagaLuzCozinha(){
-    digitalWrite(ledAmarelo,LOW); 
-  }
-
-void acendeLuzSala(){
     digitalWrite(ledVerde,HIGH);
   }
 
+void apagaLuzCozinha(){
+    digitalWrite(ledVerde,LOW); 
+  }
+
+void acendeLuzSala(){
+    digitalWrite(ledNaoSei1,HIGH);
+  }
+
 void apagaLuzSala(){
-    digitalWrite(ledVerde,LOW);
+    digitalWrite(ledNaoSei1,LOW);
   }
 
 void acendeLuzGaragem(){
@@ -173,24 +173,24 @@ void apagaLuz1(){
   }
   
 
-void acendeLuz2(){
-    digitalWrite(ledNaoSei2,HIGH);
+void acendeLuzQuartoS(){
+    digitalWrite(ledAmarelo,HIGH);
   }
   
 
-void apagaLuz2(){
-    digitalWrite(ledNaoSei2,LOW);
+void apagaLuzQuartoS(){
+   digitalWrite(ledAmarelo,LOW);
   }
   
 
-void acendeLuz3(){
-    digitalWrite(ledNaoSei3,HIGH);
-  }
+//void acendeLuz3(){
+//    digitalWrite(ledNaoSei3,HIGH);
+//  }
   
 
-void apagaLuz3(){
-    digitalWrite(ledNaoSei3,LOW);
-  }
+//void apagaLuz3(){
+//    digitalWrite(ledNaoSei3,LOW);
+//  }
 
   void ligaVentiladorSala(){
     digitalWrite(pinVentiladorSala, HIGH);
