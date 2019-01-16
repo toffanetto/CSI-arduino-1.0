@@ -12,6 +12,6 @@ Libraries:
   
   SPI.h (https://github.com/PaulStoffregen/SPI.git)
   
-  Ethernet.h (https://github.com/arduino-libraries/Ethernet.git)
+
 
 
