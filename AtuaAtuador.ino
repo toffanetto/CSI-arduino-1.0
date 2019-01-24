@@ -29,10 +29,7 @@ void ativaRele(int rele){
     Serial.println(rele);
   if(rele==1)
   digitalWrite(pinRele_1,LOW);
-
-  if(rele==2)
-  digitalWrite(pinRele_2,LOW);
- }
+}
 
 void desativaRele(int rele){
   //int rele;
@@ -43,10 +40,7 @@ void desativaRele(int rele){
    Serial.println(rele); 
   if(rele==1)
   digitalWrite(pinRele_1,HIGH);
-
-  if(rele==2)
-  digitalWrite(pinRele_2,HIGH);
- }
+}
 
 void ativaLed(){
   int led;
@@ -206,12 +200,4 @@ void apagaLuzQuartoS(){
 
   void desativaSolenoide(){
     digitalWrite(pinRele_1, LOW);
-  }
-
-  void ativaSirene(){
-    digitalWrite(pinRele_2, HIGH);
-  }
-
-  void desativaSirene(){
-    digitalWrite(pinRele_2, LOW);
   }

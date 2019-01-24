@@ -63,7 +63,7 @@ const int pin_somD = 31; // DIGITAL SOM
 const int pinUMD_D0 = 26; // DIGITAL UMD
 const int pinUMD_A0 = A3; // ANALOGICO UMD
 const int pinRele_1 = 5; //SOLENOIDE
-const int pinRele_2 = 6; //SIRENE
+const int pinAltoFalante = 6; //SIRENE
 const int ledQuarto = 49; //  LUZ DO QUARTO DE CASAL
 const int ledAmarelo = 41; // LUZ DO QUARTO DE SOLTEIRO
 const int ledVermelho = 47; // LUZ DA GARAGEM
@@ -85,6 +85,9 @@ boolean rele = LOW;
 int setpointGas = 1024; // QUANTIDADE DE GÁS QUE VAI ATIVAR O MODO DE SEGURANÇA
 int setpointUmidade = 500;
 int marcus = 0;
+int x=0;
+int sinVal = 0;
+int toneVal = 0;
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -111,9 +114,8 @@ void setup() {
   pinMode(pinMQ2_D0,INPUT); //
   pinMode(pinMQ7_D0,INPUT); //
   pinMode(pinRele_1,OUTPUT); //
-  pinMode(pinRele_2,OUTPUT); //
+  pinMode(pinAltoFalante,OUTPUT); //
   digitalWrite(pinRele_1,LOW); //
-  digitalWrite(pinRele_2,LOW); //
   pinMode(ledQuarto, OUTPUT); //
   pinMode(ledVerde, OUTPUT); // 
   pinMode(ledAmarelo, OUTPUT); //
@@ -126,7 +128,7 @@ void setup() {
 //  pinMode(ledNaoSei3, OUTPUT);   //
    
   iniciandoSerial();
-  
+
   nfc.begin();
   
   uint32_t versiondata = nfc.getFirmwareVersion();
@@ -157,7 +159,7 @@ void setup() {
   
   delay(3000);
   Serial.println("Rodando");
-  escreveBluetooth();
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -171,5 +173,5 @@ void loop() {
   lerBluetooth();
   lerSerial();
   operar();
-  
+  escreveBluetooth();
 }

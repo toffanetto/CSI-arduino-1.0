@@ -33,10 +33,12 @@ void modoDeSeguranca(){ //INTERRUPÇÃO
     Serial1.println("FOGO");
     ativaSolenoide();
     digitalWrite(ledPin2, HIGH);
-    ativaSirene();
-    delay(2000);
-    desativaSirene();
-    delay(1800);
+    sinVal = (sin(x*(3.1416/180)));
+    toneVal = 2000+(int(sinVal*1000));
+    tone(pinAltoFalante, toneVal);
+    x++;
+    if(x>180)
+    x=0;
 }
 
 void ativaPalmas(){
@@ -44,8 +46,7 @@ void ativaPalmas(){
   if(som){
   cont++;
   cont2=0;
-  Serial.println(analogRead(pin_somA));
-  delay(10);
+  //Serial.println(analogRead(pin_somA));
   } 
 
   if(cont==2){
@@ -54,12 +55,11 @@ void ativaPalmas(){
     cont2=0;
     cont=0;
   }
-  delay(1);
   cont2++;
   if(cont2==3000){
     cont2=0;
     cont=0;
-    Serial.println("RESETANDO");
+    //Serial.println("RESETANDO");
   }
   
 }

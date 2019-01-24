@@ -84,6 +84,9 @@ void lerSerial(){
 
         case 9:
         cadastraNFC();
+
+        case 10:
+        Serial1.println("FOGO");
         
       }
     }

@@ -5,6 +5,7 @@ void lerBluetooth(){
     if(Serial1.available()){
       //avisaNoSerial();
       cod=Serial1.read();
+      Serial.println(cod);
       switch(cod){
         case 0:
         break;
@@ -126,8 +127,8 @@ void escreveBluetooth(){
       }
 
 
-      Serial1.println(dadosDHT('t'));
+      Serial1.println(int(dadosDHT('t')));
 
-      Serial1.println(dadosDHT('u')+200);
+      Serial1.println(int(dadosDHT('u')+200));
           
    }
