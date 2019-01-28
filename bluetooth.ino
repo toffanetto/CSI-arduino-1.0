@@ -5,6 +5,7 @@ void lerBluetooth(){
     if(Serial1.available()){
       //avisaNoSerial();
       cod=Serial1.read();
+      if(cod!=0)
       Serial.println(cod);
       switch(cod){
         case 0:

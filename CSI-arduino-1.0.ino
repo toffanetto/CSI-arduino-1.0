@@ -11,7 +11,6 @@
  */
 
 #include <SPI.h>
-#include <Ethernet.h>
 #include <DHT.h>
 #include "Servo.h"
 #include <PN532_HSU.h>
@@ -133,9 +132,6 @@ void setup() {
   nfc.SAMConfig();
   
   dht.begin();
-  
-  Ethernet.begin(mac, ip, gateway, subnet);
-  server.begin();
 
   servoPortao.attach(4);
   servoJanela.attach(3);
